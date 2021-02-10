@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 // import Accordion from "./components/Accordion";
 // import Search from './components/Search';
-import Dropdown from './components/Dropdown';
+// import Dropdown from './components/Dropdown';
+import Translate from "./components/Translate";
 
 const App = () => {
 
@@ -40,7 +41,8 @@ const App = () => {
   return <div className="ui styled accordion">
     {/* <Accordion items={items}/> */}
     {/* <Search /> */}
-    <Dropdown options={options} selected={selected} onSelectedChange={setSelected}/>
+    {/* <Dropdown options={options} selected={selected} onSelectedChange={setSelected}/> label={"Select a color: "} */}
+    <Translate />
   </div>;
 };
 
