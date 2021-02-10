@@ -4,6 +4,18 @@ import GOOGLE_API from "../api/api";
 
 const Convert = ({ language, text }) => {
   const [translate, setTranslate] = useState("");
+  const [debouncedText, setDebouncedText] = useState(text);
+
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+        setDebouncedText(text);
+    }, 500)
+
+    return () => {
+        clearTimeout(timerId);
+    }
+  }, [text])
 
   useEffect(() => {
     const translation = async () => {
@@ -12,7 +24,7 @@ const Convert = ({ language, text }) => {
         {},
         {
           params: {
-            q: text,
+            q: debouncedText,
             target: language.value,
             key: GOOGLE_API,
           },
@@ -23,7 +35,7 @@ const Convert = ({ language, text }) => {
     };
 
     translation();
-  }, [language, text]);
+  }, [language, debouncedText]);
 
   return (
     <div>
