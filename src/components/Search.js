@@ -42,7 +42,7 @@ const Search = () => {
       return (
           <div key={result.pageid} className="item">
             <div className="right floated content">
-              <a className="ui button" href={`https://en.wikipedia.org?curid=${result.pageid}`} target="_blank">Go</a>
+              <a className="ui button" href={`https://en.wikipedia.org?curid=${result.pageid}`} target="_blank" rel="noreferrer">Go</a>
             </div>
               <div className="content">
                 <div className="header">
